@@ -20,4 +20,14 @@ function handleSubmit() {
     console.log(id);
     console.log(title);
     console.log(annualSalary);
+
+    $('#employee-table').append(`
+    <tr>
+        <td>${firstName}<td>
+        <td>${lastName}<td>
+        <td>${id}<td>
+        <td>${title}<td>
+        <td>${annualSalary}<td>
+    </tr>
+    `)
 }
