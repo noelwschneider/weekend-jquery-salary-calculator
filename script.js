@@ -38,12 +38,12 @@ function handleSubmit() {
         $('#monthly-costs-value').html(`<span id="monthly-costs-value">${monthlyCosts}</span>`)
     }
 
-    // // Logging to test variables
-    // console.log(firstName);
-    // console.log(lastName);
-    // console.log(id);
-    // console.log(title);
-    // console.log(annualSalary);
+    // Clearing input forms
+    $('#first-name-input').val('');
+    $('#last-name-input').val('');
+    $('#id-input').val('');
+    $('#title-input').val('');
+    $('#annual-salary-input').val('');
 
     // Adding a row to the table
     $('#employee-table-body').append(`
@@ -56,6 +56,4 @@ function handleSubmit() {
         <td><button class="delete-button">Delete</button></td>
     </tr>
     `); // end of append
-
-
 }
