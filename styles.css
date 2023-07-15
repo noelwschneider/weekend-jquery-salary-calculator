@@ -11,3 +11,7 @@ table, th, tr, td {
     font-weight: 50;
     font-size: 36px;
 }
+
+.over-budget {
+    background-color: red;
+}
