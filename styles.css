@@ -1,3 +1,13 @@
-table {
-    border-width: 1px;
+table, th, tr, td {
+    border: 1px solid;
+}
+
+/*  .alarm-bell is a class for reminders I
+    leave myself on the webpage. The goal
+    is to be something I cannot miss before
+    I submit the assignment. */
+.alarm-bell {
+    color: red;
+    font-weight: 50;
+    font-size: 36px;
 }

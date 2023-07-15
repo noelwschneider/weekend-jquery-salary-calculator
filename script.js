@@ -23,11 +23,12 @@ function handleSubmit() {
 
     $('#employee-table').append(`
     <tr>
-        <td>${firstName}<td>
-        <td>${lastName}<td>
-        <td>${id}<td>
-        <td>${title}<td>
-        <td>${annualSalary}<td>
+        <td>${firstName}</td>
+        <td>${lastName}</td>
+        <td>${id}</td>
+        <td>${title}</td>
+        <td>${annualSalary}</td>
+        <td><button class=".delete-button">Delete</button></td>
     </tr>
     `)
 }
