@@ -1,0 +1,18 @@
+Build the HTML
+    Header "Add Employee"
+    5 inputs in a form, side-by-side
+    Submit button
+    Header "Employees"
+    Table with 6 columns
+        First name
+        Last name
+        ID
+        Title
+        Annual Salary 
+        (delete buttons)
+
+Take information from the input forms and share it to the Table
+    Write a listener for the submit button
+    Store each input in a variable
+    Append a row to the table with the submitted data
+    Clear the user entries from the input fields
