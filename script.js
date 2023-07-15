@@ -12,7 +12,17 @@ let monthlyCosts = 0;
 
 // Function to delete table rows
 function deleteRow() {
-    // console.log('in the delete row function');
+
+    // Subtracting monthly costs for the removed employee
+    let removedSalary = $(this).parent().siblings('.annual-salary-entry').text();
+    monthlyCosts -= removedSalary / 12;
+    if(monthlyCosts > 20000) {
+        $('#monthly-costs-value').html(`<span id="monthly-costs-value" class="over-budget">${monthlyCosts}</span>`)
+    } else {
+        $('#monthly-costs-value').html(`<span id="monthly-costs-value">${monthlyCosts}</span>`)
+    }
+
+    // Removing the row
     $(this).parent().parent().remove();
 }
 
@@ -31,7 +41,6 @@ function handleSubmit() {
     
     // Adding submitted salary to the monthly costs variable
     monthlyCosts += annualSalary / 12;
-    console.log(monthlyCosts);
     if(monthlyCosts > 20000) {
         $('#monthly-costs-value').html(`<span id="monthly-costs-value" class="over-budget">${monthlyCosts}</span>`)
     } else {
@@ -52,7 +61,7 @@ function handleSubmit() {
         <td>${lastName}</td>
         <td>${id}</td>
         <td>${title}</td>
-        <td>${annualSalary}</td>
+        <td class='annual-salary-entry'>${annualSalary}</td>
         <td><button class="delete-button">Delete</button></td>
     </tr>
     `); // end of append
