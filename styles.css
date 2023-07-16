@@ -1,17 +1,146 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+header {
+    background-color: gray;
+    color: white;
+    width: 100%;
+    font-size: 48px;
+    text-align: center;
+}
+
 table, th, tr, td {
     border: 1px solid;
 }
 
-/*  .alarm-bell is a class for reminders I
-    leave myself on the webpage. The goal
-    is to be something I cannot miss before
-    I submit the assignment. */
-.alarm-bell {
-    color: red;
-    font-weight: 50;
-    font-size: 36px;
+/* USER INPUT FORM */
+/*  Specificity:
+    #submit-button
+    #user-inputs
+    #user-input-header
+    #user-input-section
+    .input-field
+    .input-span
+    input
+    button
+*/
+
+/*  Structure:
+    #user-input-section (yellow)
+        #user-input-header
+        #user-inputs (red)
+            .input-span (blue)
+                .input-field (green)
+    #submit-button (magenta)
+*/
+
+#user-input-section {
+    /* border for testing */
+    border: 3px solid yellow;
+}
+
+#user-input-header {
+    border: 2px solid brown;
+}
+
+#user-inputs {
+    white-space: nowrap;
+    height: 50px;
+    /* border for testing */
+    border: 2px solid red;
+}
+
+.input-span {
+    /* border for testing */
+    border: 1px solid blue;
+}
+
+.input-field {
+    margin-left: 1%;
+    margin-right: 1%;
+    width: 16%;
+    height: 100%;
+    font-size: 100%;
+    /* border for testing */
+    border: 3px solid green;
+}
+
+#submit-button {
+    background-color: silver;
+    border: 1px solid;
+    margin: 4px;
+    border-radius: 5px;
+    position: absolute;
+    left: 80%;
+    /* border for testing */
+    border: 1px solid magenta;
+}
+
+/* EMPLOYEE DATA TABLE */
+/*  Specificity:
+    #monthly-costs-value
+    #employee-table-body
+    #employee-table-head
+    #employee-table
+    #employee-data-header
+    #employee-data-section
+    .over-budget
+*/
+
+/*  Structure:
+    #employee-data-section (red)
+        #employee-data-header
+        #employee-table
+            #employee-table-head
+                <tr>
+                    <th>
+        #employee-table-body
+            .silver-row / .white-row
+                .annual-salary-entry
+                .delete-button
+        #monthly-costs-title
+            #monthly-costs-value
+            .over-budget
+*/
+
+#employee-data-section {
+    width: 100%;
+    margin-top: 75px;
+    /* border for testing */
+    border: 2px solid yellow;
+}
+
+#employee-data-header {
+    /* border for testing */
+    border: 2px solid brown;
+}
+
+#employee-table {
+    /* border for testing */
+    border: 2px solid red;
+}
+
+#employee-table-head {
+    background-color: gray;
+    /* border for testing */
+    border: 2px solid green;
+}
+
+#delete-button-column-header {
+    background-color: white;
+    border: 0px;
 }
 
 .over-budget {
     background-color: red;
+}
+
+.white-row {
+    background-color: white;
+}
+
+.silver-row {
+    background-color: silver;
 }

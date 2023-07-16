@@ -1,18 +1,21 @@
-Build the HTML
-    Header "Add Employee"
-    5 inputs in a form, side-by-side
-    Submit button
-    Header "Employees"
-    Table with 6 columns
-        First name
-        Last name
-        ID
-        Title
-        Annual Salary 
-        (delete buttons)
+GOALS
+Get CSS formatting to where I am satisfied with it
+Add a dollar sign before monthly costs and annual salaries
+Add commas if monthly costs or annual salaries are greater than 1,000 (or 1,000,000)
+display decimals monthly costs and annuals salaries to the hundredth
+    OR remove any decimals
+Add the ability to accept various formats for the annual salary input
+    plain number - 1000
+    leading dollar sign - $1000
+    commas - 1,000
+    decimals - 1000.01
 
-Take information from the input forms and share it to the Table
-    Write a listener for the submit button
-    Store each input in a variable
-    Append a row to the table with the submitted data
-    Clear the user entries from the input fields
+CSS Combinators
+(space) descendant selector
+    Targets all descendants of a specified type
+> child selector
+    Targets all children of the specified type
++ adjacent sibling selector
+    Targets the immediate following sibling of the specified type
+~ general sibling selector
+    Targets all subsequent siblings of the specified type
