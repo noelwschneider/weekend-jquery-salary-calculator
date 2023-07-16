@@ -9,6 +9,7 @@ Add the ability to accept various formats for the annual salary input
     leading dollar sign - $1000
     commas - 1,000
     decimals - 1000.01
+Format deleteRow function to recolor rows
 
 CSS Combinators
 (space) descendant selector

@@ -11,10 +11,6 @@ header {
     text-align: center;
 }
 
-table, th, tr, td {
-    border: 1px solid;
-}
-
 /* USER INPUT FORM */
 /*  Specificity:
     #submit-button
@@ -70,7 +66,7 @@ table, th, tr, td {
 #submit-button {
     background-color: silver;
     border: 1px solid;
-    margin: 4px;
+    margin-top: 20px;
     border-radius: 5px;
     position: absolute;
     left: 80%;
@@ -106,7 +102,6 @@ table, th, tr, td {
 */
 
 #employee-data-section {
-    width: 100%;
     margin-top: 75px;
     /* border for testing */
     border: 2px solid yellow;
@@ -117,7 +112,14 @@ table, th, tr, td {
     border: 2px solid brown;
 }
 
+td, th {
+    border: 1px solid black;
+    line-height: 40px;
+}
+
 #employee-table {
+    border-spacing: 0px;
+    width: 100%;
     /* border for testing */
     border: 2px solid red;
 }
@@ -128,9 +130,41 @@ table, th, tr, td {
     border: 2px solid green;
 }
 
-#delete-button-column-header {
+#first-name-column {
+    width: 17%;
+}
+
+#last-name-column {
+    width: 17%;
+}
+
+#id-column {
+    width: 11%;
+}
+
+#title-column {
+    width: 17%;
+}
+
+#annual-salary-column {
+    width: 17%;
+}
+
+#delete-button-column {
+    width: 17%;
     background-color: white;
     border: 0px;
+    /* border for testing */
+    /* border: 1px solid blue; */
+}
+
+.delete-button{
+    margin: auto;
+}
+
+#monthly-costs-title {
+    font-size: 22px;
+    text-align: right;
 }
 
 .over-budget {
