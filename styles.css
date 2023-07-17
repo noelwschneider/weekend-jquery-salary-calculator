@@ -42,10 +42,6 @@ header {
     /* border: 3px solid yellow; */
 }
 
-#user-input-header {
-    /* border: 2px solid brown; */
-}
-
 #user-inputs {
     white-space: nowrap;
     height: 50px;
@@ -54,11 +50,9 @@ header {
 }
 
 .input-field {
-    /* margin-left: 1%;
-    margin-right: 1%; */
     width: 19%;
     height: 100%;
-    font-size: 100%;
+    font-size: 20px;
     /* border for testing */
     /* border: 3px solid green; */
 }
@@ -81,6 +75,8 @@ header {
     position: absolute;
     height: 40px;
     width: 100px;
+    font-size: 20px;
+    font-weight: bold;
     /* border for testing */
     /* border: 1px solid magenta; */
 }
@@ -135,12 +131,14 @@ td, th {
 #employee-table {
     border-spacing: 0px;
     width: 100%;
+    font-size: 20px;
     /* border for testing */
     /* border: 2px solid red; */
 }
 
 #employee-table-head {
     background-color: gray;
+    text-align: left;
     /* border for testing */
     /* border: 2px solid green; */
 }
