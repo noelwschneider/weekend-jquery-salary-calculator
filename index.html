@@ -29,10 +29,16 @@
                 <input id="annual-salary-input" class="input-field"  placeholder="Annual Salary">
             </span>
         </form>
+        <div id="warning-messages">
+            <span id="first-name-error" class="error-message"></span>
+            <span id="last-name-error" class="error-message"></span>
+            <span id="id-error" class="error-message"></span>
+            <span id="title-error" class="error-message"></span>
+            <span id="annual-salary-error" class="error-message"></span>
+        </div>
         <button id="submit-button">Submit</button>
     </div>
    
-
     <div id="employee-data-section">
         <h1 id="employee-data-header">Employees</h1>
         <table id="employee-table">
@@ -47,16 +53,6 @@
                 </tr>
             </thead>
             <tbody id="employee-table-body">
-                <!-- 
-                <tr>
-                <td>${firstName}</td>
-                <td>${lastName}</td>
-                <td>${id}</td>
-                <td>${title}</td>
-                <td class='annual-salary-entry'>${annualSalary}</td>
-                <td><button class="delete-button">Delete</button></td>
-                </tr> 
-                -->
             </tbody>
         </table>
         <p id="monthly-costs-title">Total Monthly Costs: <span id="dollar-sign">$</span><span id="monthly-costs-value">0</span></p>

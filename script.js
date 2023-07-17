@@ -30,10 +30,6 @@ function deleteRow() {
 
     // Removing the row
     $(this).parent().parent().remove();
-
-
-    for (let i = 1; i <= tableRowCounter; i++) {
-    }
 } // end of deleteRow
 
 // function to:
@@ -46,7 +42,57 @@ function handleSubmit() {
     let lastName = $('#last-name-input').val();
     let id = $('#id-input').val();
     let title = $('#title-input').val();
-    let annualSalary = Math.round($('#annual-salary-input').val());
+    let annualSalary;
+    if ($('#annual-salary-input').val() === '') {
+        annualSalary = '';
+    } else {
+        annualSalary = Math.round(removeCommas($('#annual-salary-input').val()));
+    }
+
+    // Conditionals to confirm data types are correct
+        // Seems like this whole sequence should probably be
+        // in a separate function, but having trouble wrapping
+        // my head around how the arguments would work
+    let exitFunction = false;
+    if (getDataType(firstName) !== 'string') {
+        exitFunction = true;
+        $('#first-name-error').text('Please enter a text string');
+    } else {
+        $('#first-name-error').text('');
+    }
+
+    if (getDataType(lastName) !== 'string') {
+        exitFunction = true;
+        $('#last-name-error').text('Please enter a text string');
+    } else {
+        $('#last-name-error').text('');
+    }
+
+    if (getDataType(id) !== 'number') {
+        exitFunction = true;
+        $('#id-error').text('Please enter a number');
+    } else {
+        $('#id-error').text('');
+    }
+
+    if (getDataType(title) !== 'string') {
+        exitFunction = true;
+        $('#title-error').text('Please enter a text string');
+    } else {
+        $('#title-error').text('');
+    }
+
+    console.log(annualSalary);
+    if (annualSalary === '') {
+        exitFunction = true;
+        $('#annual-salary-error').text('Please enter a salary');
+    } else {
+        $('#annual-salary-error').text('');
+    }
+
+    if (exitFunction) {
+        return;
+    }
     
     // Adding submitted salary to the monthly costs variable
     monthlyCosts += Math.round((annualSalary / 12));
@@ -80,7 +126,7 @@ function handleSubmit() {
         <td>${id}</td>
         <td>${title}</td>
         <td id="annual-salary-entry-${tableRowCounter}" class="annual-salary-entry" value="${annualSalary}">$${addCommas(annualSalary)}</td>
-        <td><button class="delete-button">Delete</button></td>
+        <td class="delete-button-container"><button class="delete-button">Delete</button></td>
     </tr>
     `); // end of append
     // console.log($(`#annual-salary-entry-${tableRowCounter}`).val());
@@ -109,13 +155,9 @@ function addCommas(number) {
 
     // Variable with how many digits before the first comma
     let leadingDigits = digits % 3;
-    console.log('number:', number)
-    console.log('leading digits:', leadingDigits)
-    console.log('digits:', digits);
 
     // Variable with the total number of commas needed
     let commasNeeded = Math.floor(digits / 3);
-    console.log('commas needed:', commasNeeded)
 
     // Array to hold each digit
     const arrayOfDigits = [];
@@ -131,9 +173,7 @@ function addCommas(number) {
     let skipCheck;
 
     if(digits % 3 === 0) {
-        console.log('filter activated')
         commasNeeded--;
-        console.log('commas needed:', commasNeeded)
         skipCheck = true;
     }
 
@@ -163,3 +203,17 @@ function removeCommas(string) {
   
     return Number(array.join(''))
   }
+
+function getDataType(string) {
+    if (string === '') {
+        return 'undefined';
+    }
+
+    for (let character of string) {
+        let nanTest = Number(character);
+        if(isNaN(nanTest)) {
+            return 'string';
+        }
+    }
+    return 'number';
+}
