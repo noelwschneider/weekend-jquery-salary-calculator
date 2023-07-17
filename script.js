@@ -15,20 +15,25 @@ function onReady() {
 
 // Function to delete table rows
 function deleteRow() {
+    tableRowCounter--;
 
     // Subtracting monthly costs for the removed employee
     let removedSalary = $(this).parent().siblings('.annual-salary-entry').text();
-    monthlyCosts -= removedSalary / 12;
+    monthlyCosts -= Math.round(removeCommas(removedSalary) / 12);
 
     // Conditional to add red background if monthly costs are more than $20,000
     if(monthlyCosts > 20000) {
-        $('#monthly-costs-value').html(`<span id="monthly-costs-value" class="over-budget">${addCommas(monthlyCosts)}</span>`)
+        $('#monthly-costs-value').html(`<span id="monthly-costs-value" class="over-budget">${addCommas(monthlyCosts)}</span>`);
     } else {
-        $('#monthly-costs-value').html(`<span id="monthly-costs-value">${monthlyCosts}</span>`)
+        $('#monthly-costs-value').html(`<span id="monthly-costs-value">${addCommas(monthlyCosts)}</span>`);
     }
 
     // Removing the row
     $(this).parent().parent().remove();
+
+
+    for (let i = 1; i <= tableRowCounter; i++) {
+    }
 } // end of deleteRow
 
 // function to:
@@ -36,17 +41,15 @@ function deleteRow() {
     // Send user data to the table
     // Add and display monthly costs (based on salary input)
 function handleSubmit() {
-    
     // Variables to store input data
     let firstName = $('#first-name-input').val();
     let lastName = $('#last-name-input').val();
     let id = $('#id-input').val();
     let title = $('#title-input').val();
-    // Probably worth adding the abi
-    let annualSalary = Math.floor($('#annual-salary-input').val());
+    let annualSalary = Math.round($('#annual-salary-input').val());
     
     // Adding submitted salary to the monthly costs variable
-    monthlyCosts += Math.floor((annualSalary / 12));
+    monthlyCosts += Math.round((annualSalary / 12));
     if(monthlyCosts > 20000) {
         $('#monthly-costs-value').html(`<span id="monthly-costs-value" class="over-budget">${addCommas(monthlyCosts)}</span>`)
     } else {
@@ -76,10 +79,12 @@ function handleSubmit() {
         <td>${lastName}</td>
         <td>${id}</td>
         <td>${title}</td>
-        <td class="annual-salary-entry">$${addCommas(annualSalary)}</td>
+        <td id="annual-salary-entry-${tableRowCounter}" class="annual-salary-entry" value="${annualSalary}">$${addCommas(annualSalary)}</td>
         <td><button class="delete-button">Delete</button></td>
     </tr>
     `); // end of append
+    // console.log($(`#annual-salary-entry-${tableRowCounter}`).val());
+    
 } // end of handleSubmit()
 
 // Function that returns the number of digits in a number
@@ -94,11 +99,8 @@ function addCommas(number) {
     // 1000    ->     1,000
     // 1000000 -> 1,000,000
 
-
-
     // variable to hold the number of digits in the argument
     const digits = getDigits(number);
-    // console.log("total digits:", digits);
 
     // Conditional for if no commas are needed
     if(digits < 4) {
@@ -106,12 +108,14 @@ function addCommas(number) {
     }
 
     // Variable with how many digits before the first comma
-    const leadingDigits = digits % 3;
-    // console.log("leading digits:", leadingDigits);
+    let leadingDigits = digits % 3;
+    console.log('number:', number)
+    console.log('leading digits:', leadingDigits)
+    console.log('digits:', digits);
 
     // Variable with the total number of commas needed
-    let commasNeeded = Math.floor(digits/3);
-    // console.log("commas needed:", commasNeeded);
+    let commasNeeded = Math.floor(digits / 3);
+    console.log('commas needed:', commasNeeded)
 
     // Array to hold each digit
     const arrayOfDigits = [];
@@ -121,17 +125,41 @@ function addCommas(number) {
     for(i=0; i < digits; i++) {
         arrayOfDigits.push(stringedNumber[i]);
     }
-    // console.log("arrayed number:", arrayOfDigits);
 
     let commasAdded = 0;
+    
+    let skipCheck;
+
+    if(digits % 3 === 0) {
+        console.log('filter activated')
+        commasNeeded--;
+        console.log('commas needed:', commasNeeded)
+        skipCheck = true;
+    }
 
     for(let i = 0; i < commasNeeded; i++) {
         // [1, 2, 3, 4, 5, 6, 7]
         //  0  1  2  3  4  5  6  
+        if (skipCheck) {
+            leadingDigits +=3;
+            skipCheck = false;
+        }
         let spliceIndex = leadingDigits + commasAdded + (i * 3);
         commasAdded++;
         arrayOfDigits.splice(spliceIndex, 0, ",");
-        // console.log(arrayOfDigits);
     }
     return arrayOfDigits.join('')
 }
+
+function removeCommas(string) {
+    let array = [];
+  
+    for(let character of string) {
+      let nanTest = Number(character);
+      if(!isNaN(nanTest)) {
+        array.push(nanTest);
+      }
+    }
+  
+    return Number(array.join(''))
+  }

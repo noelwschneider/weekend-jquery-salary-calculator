@@ -4,6 +4,8 @@
 }
 
 header {
+    padding-top: 10px;
+    padding-bottom: 10px;
     background-color: gray;
     color: white;
     width: 100%;
@@ -33,34 +35,37 @@ header {
 */
 
 #user-input-section {
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    margin-top: 10px;
     /* border for testing */
-    border: 3px solid yellow;
+    /* border: 3px solid yellow; */
 }
 
 #user-input-header {
-    border: 2px solid brown;
+    /* border: 2px solid brown; */
 }
 
 #user-inputs {
     white-space: nowrap;
     height: 50px;
     /* border for testing */
-    border: 2px solid red;
+    /* border: 2px solid red; */
 }
 
 .input-span {
     /* border for testing */
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
 }
 
 .input-field {
-    margin-left: 1%;
-    margin-right: 1%;
-    width: 16%;
+    /* margin-left: 1%;
+    margin-right: 1%; */
+    width: 19%;
     height: 100%;
     font-size: 100%;
     /* border for testing */
-    border: 3px solid green;
+    /* border: 3px solid green; */
 }
 
 #submit-button {
@@ -69,9 +74,10 @@ header {
     margin-top: 20px;
     border-radius: 5px;
     position: absolute;
-    left: 80%;
+    height: 40px;
+    width: 100px;
     /* border for testing */
-    border: 1px solid magenta;
+    /* border: 1px solid magenta; */
 }
 
 /* EMPLOYEE DATA TABLE */
@@ -103,43 +109,46 @@ header {
 
 #employee-data-section {
     margin-top: 75px;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
     /* border for testing */
-    border: 2px solid yellow;
+    /* border: 2px solid yellow; */
 }
 
 #employee-data-header {
     /* border for testing */
-    border: 2px solid brown;
+    /* border: 2px solid brown; */
 }
 
 td, th {
     border: 1px solid black;
     line-height: 40px;
+    padding: 0px;
 }
 
 #employee-table {
     border-spacing: 0px;
     width: 100%;
     /* border for testing */
-    border: 2px solid red;
+    /* border: 2px solid red; */
 }
 
 #employee-table-head {
     background-color: gray;
     /* border for testing */
-    border: 2px solid green;
+    /* border: 2px solid green; */
 }
 
 #first-name-column {
-    width: 17%;
+    width: 20%;
 }
 
 #last-name-column {
-    width: 17%;
+    width: 20%;
 }
 
 #id-column {
-    width: 11%;
+    width: 10%;
 }
 
 #title-column {
@@ -147,11 +156,11 @@ td, th {
 }
 
 #annual-salary-column {
-    width: 17%;
+    width: 20%;
 }
 
 #delete-button-column {
-    width: 17%;
+    width: 10%;
     background-color: white;
     border: 0px;
     /* border for testing */
@@ -159,12 +168,26 @@ td, th {
 }
 
 .delete-button{
-    margin: auto;
+    width: 100%;
+    height: 40px;
+    padding: 0px;
+    margin: 0px;
+    border-radius: 0px;
+    font-weight: bolder;
+    font-size: 20px;
 }
 
 #monthly-costs-title {
     font-size: 22px;
     text-align: right;
+}
+
+#dollar-sign {
+    font-weight: bold;
+}
+
+#monthly-costs-value {
+    font-weight: bold;
 }
 
 .over-budget {
