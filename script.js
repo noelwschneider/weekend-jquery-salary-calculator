@@ -42,11 +42,11 @@ function handleSubmit() {
     let lastName = $('#last-name-input').val();
     let id = $('#id-input').val();
     let title = $('#title-input').val();
-    let annualSalary;
-    if ($('#annual-salary-input').val() === '') {
-        annualSalary = '';
-    } else {
+    let annualSalary = $('#annual-salary-input').val();
+    if (hasNumber(annualSalary)) {
         annualSalary = Math.round(removeCommas($('#annual-salary-input').val()));
+    } else {
+        annualSalary = '';
     }
 
     // Conditionals to confirm data types are correct
@@ -82,10 +82,9 @@ function handleSubmit() {
         $('#title-error').text('');
     }
 
-    console.log(annualSalary);
     if (annualSalary === '') {
         exitFunction = true;
-        $('#annual-salary-error').text('Please enter a salary');
+        $('#annual-salary-error').text('Please include at least one number');
     } else {
         $('#annual-salary-error').text('');
     }
@@ -169,7 +168,6 @@ function addCommas(number) {
     }
 
     let commasAdded = 0;
-    
     let skipCheck;
 
     if(digits % 3 === 0) {
@@ -217,3 +215,13 @@ function getDataType(string) {
     }
     return 'number';
 }
+
+function hasNumber(string) {
+    for (let character of string) {
+      let nanTest = Number(character);
+      if(!isNaN (nanTest)) {
+        return true;
+      }
+    }
+    return false;
+  }
